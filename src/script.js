@@ -26,7 +26,8 @@ window.addEventListener('load', () => {
 });
 
 // Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+const smoothAnchors = document.querySelectorAll('a[href^="#"]');
+smoothAnchors.forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
@@ -37,6 +38,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Scroll indicator explicit click support (fallback)
+const scrollIndicator = document.getElementById('scrollIndicator');
+if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector('#about');
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+}
 
 // Typing effect for hero title
 const heroTitle = document.querySelector('.hero-title');

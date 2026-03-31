@@ -226,11 +226,51 @@ main {
   color: var(--text-light);
 }
 
+.scroll-indicator,
+.scroll-indicator:link,
+.scroll-indicator:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: var(--transition);
+  margin-top: 3rem; /* maior espaçamento do topo do hero */
+}
+
+.scroll-indicator:hover {
+  color: var(--primary-color);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
 .hero-buttons {
   display: flex;
   gap: var(--spacing-md);
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+  border-color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
 }
 
 /* ===== BUTTONS ===== */
